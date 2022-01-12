@@ -2,9 +2,10 @@
 
 namespace RalphJSmit\Helpers;
 
+use RalphJSmit\Helpers\Commands\HelpersCommand;
+use RalphJSmit\Helpers\Laravel\Support\NamespaceManager;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use RalphJSmit\Helpers\Commands\HelpersCommand;
 
 class HelpersServiceProvider extends PackageServiceProvider
 {
@@ -12,9 +13,11 @@ class HelpersServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('laravel-helpers')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-helpers_table')
-            ->hasCommand(HelpersCommand::class);
+            ->hasConfigFile();
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->app->singleton(NamespaceManager::class, NamespaceManager::class);
     }
 }

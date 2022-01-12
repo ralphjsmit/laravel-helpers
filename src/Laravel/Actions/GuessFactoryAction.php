@@ -7,7 +7,7 @@ use Illuminate\Support\Stringable;
 
 class GuessFactoryAction
 {
-    public function execute(string $input): string
+    public function execute(string $input, bool $asPackage): string
     {
         if ( Str::startsWith($input, 'App\\Models\\') ) {
             $modelName = Str::after($input, 'App\\Models\\');

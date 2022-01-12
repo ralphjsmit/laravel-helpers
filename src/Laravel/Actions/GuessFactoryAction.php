@@ -21,8 +21,12 @@ class GuessFactoryAction
             $namespace = Str::of($input)
                 ->before('Models\\')
                 ->when(
-                    Str::startsWith($input, 'Domain') && ! config('helpers.laravel.guess_factory_names_with_domain'),
+                    Str::startsWith($input, 'Domain') && ! config('helpers.laravel.guess_factory_names_with_domain_namespace'),
                     fn (Stringable $str) => $str->after('Domain\\')
+                )
+                ->when(
+                    Str::startsWith($input, 'Support') && ! config('helpers.laravel.guess_factory_names_with_support_namespace'),
+                    fn (Stringable $str) => $str->after('Support\\')
                 );
 
             return "Database\\Factories\\{$namespace}{$modelName}Factory";

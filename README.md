@@ -16,7 +16,7 @@ composer require ralphjsmit/laravel-helpers
 
 #### Smart factory name guessing with `HasFactory`
 
-You can use the new `HasFactory` trait to automatically guess the name of your factories. This optimized factory trait can also guess the name of factories in different namespaces than `App\Models`.
+You can use the new `HasFactory` trait to automatically guess the name of your factories. This optimized factory trait can also guess the name of factories in different namespaces than `App\Models`, like `Support\.
 
 ```php
 use Illuminate\Database\Eloquent\Model;

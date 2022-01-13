@@ -4,6 +4,7 @@ namespace RalphJSmit\Helpers\Laravel\Concerns;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use RalphJSmit\Helpers\Laravel\Actions\GuessFactoryAction;
+use ReflectionClass;
 
 trait HasFactory
 {
@@ -11,7 +12,9 @@ trait HasFactory
 
     public static function newFactory(): Factory
     {
-        $guess = app(GuessFactoryAction::class)->execute(static::class);
+        $pathToCurrentModel = dirname(( new ReflectionClass(static::class) )->getFileName());
+
+        $guess = app(GuessFactoryAction::class)->execute(static::class, $pathToCurrentModel);
 
         if ( $guess ) {
             return $guess::new();

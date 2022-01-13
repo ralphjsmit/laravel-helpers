@@ -13,9 +13,9 @@ it('can return the correct factory for a model', function () {
     expect($factory)
         ->toBeInstanceOf(FactoryModelFactory::class);
 
+    dump(__DIR__);
     $spy
-        ->shouldHaveReceived('execute')
-        ->with(FactoryModel::class);
+        ->shouldHaveReceived('execute', [FactoryModel::class, __DIR__]);
 });
 
 class FactoryModel extends Model

@@ -33,6 +33,10 @@ class NamespaceManager
 
     public static function registerNamespace(string $namespace, string $path): static
     {
-        return app(static::class)->addNamespace($namespace, $path);
+        $manager = app(static::class)->addNamespace($namespace, $path);
+
+        //        dump($manager);
+
+        return $manager;
     }
 }

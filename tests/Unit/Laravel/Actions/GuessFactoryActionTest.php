@@ -25,9 +25,9 @@ it('can guess the name of a factory', function (
     [FactoryModel::class, ''],
     ['App\\Models\\User', 'Database\\Factories\\UserFactory'],
     ['App\\Models\\X\\User', 'Database\\Factories\\X\\UserFactory'],
+    ['Domain\\Blog\\Models\\User', 'Database\\Factories\\Domain\\Blog\\UserFactory'], // Config 'guess_factory_names_with_domain_namespace' default is true
     ['Domain\\Blog\\Models\\User', 'Database\\Factories\\Blog\\UserFactory', false],
-    ['Domain\\Blog\\Models\\User', 'Database\\Factories\\Domain\\Blog\\UserFactory', true],
-    ['Support\\Models\\User', 'Database\\Factories\\Support\\UserFactory', false, true],
+    ['Support\\Models\\User', 'Database\\Factories\\Support\\UserFactory', false],  // Config 'guess_factory_names_with_support_namespace' default is true
     ['Support\\Blog\\Models\\User', 'Database\\Factories\\Blog\\UserFactory', false, false],
     ['Models\\X\\User', 'Database\\Factories\\X\\UserFactory'],
     ['App\\X\\X\\User', ''],
@@ -59,16 +59,6 @@ it('can guess the name of a factory for a package', function (
         ->toBe($expectedGuess);
 }
 )->with([
-    //    [FactoryModel::class, ''],
-    //    ['App\\Models\\User', 'Database\\Factories\\UserFactory'],
-    //    ['App\\Models\\X\\User', 'Database\\Factories\\X\\UserFactory'],
-    //    ['Domain\\Blog\\Models\\User', 'Database\\Factories\\Blog\\UserFactory', false],
-    //    ['Domain\\Blog\\Models\\User', 'Database\\Factories\\Domain\\Blog\\UserFactory', true],
-    //    ['Support\\Models\\User', 'Database\\Factories\\Support\\UserFactory', false, true],
-    //    ['Support\\Blog\\Models\\User', 'Database\\Factories\\Blog\\UserFactory', false, false],
-    //    ['Models\\X\\User', 'Database\\Factories\\X\\UserFactory'],
-    //    ['App\\X\\X\\User', ''],
-    //    ['User', ''],
     [
         'RalphJSmit\\Filament\\CMS\\Blog\\Models\\Page',
         'RalphJSmit\\Filament\\CMS\\Database\\Factories\\Blog\\PageFactory',

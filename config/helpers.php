@@ -11,7 +11,7 @@ return [
          *
          * Only relevant for a DDD project.
          */
-        'guess_factory_names_with_domain_namespace' => false,
+        'guess_factory_names_with_domain_namespace' => true,
 
         /**
          * This value determines whether the Support\\ namespace is taken into account when

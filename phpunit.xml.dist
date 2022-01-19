@@ -33,7 +33,9 @@
             <clover outputFile="build/logs/clover.xml"/>
         </report>
     </coverage>
-    <logging>
-        <junit outputFile="build/report.junit.xml"/>
-    </logging>
+    <php>
+        <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+    </php>
 </phpunit>

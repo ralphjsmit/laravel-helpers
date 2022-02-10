@@ -21,3 +21,17 @@ it('can return a carbon instance for a date', function () {
         ->toDateTimeString()
         ->toBe('2022-01-31 00:00:00');
 });
+
+it('can return a carbon instance for tomorrow', function () {
+    $tomorrow = tomorrow();
+
+    expect($tomorrow->toDateString())
+        ->toBe(now()->addDay()->toDateString());
+});
+
+it('can return a carbon instance for yesterday', function () {
+    $yesterday = yesterday();
+
+    expect($yesterday->toDateString())
+        ->toBe(now()->subDay()->toDateString());
+});

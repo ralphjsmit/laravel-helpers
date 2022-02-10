@@ -20,3 +20,17 @@ if ( ! function_exists('carbonDate') ) {
         return Carbon::parse($input)->floorDay();
     }
 }
+
+if ( ! function_exists('tomorrow') ) {
+    function tomorrow(): Carbon
+    {
+        return now()->addDay();
+    }
+}
+
+if ( ! function_exists('yesterday') ) {
+    function yesterday(): Carbon
+    {
+        return now()->subDay();
+    }
+}

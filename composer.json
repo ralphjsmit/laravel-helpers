@@ -19,7 +19,6 @@
         "php": "^8.0",
         "guzzlehttp/guzzle": "^7.4",
         "illuminate/contracts": "^8.73|^9.0",
-        "laravel/framework": "^9.0",
         "ralphjsmit/pest-plugin-livewire": "^1.0",
         "spatie/laravel-package-tools": "^1.9.2"
     },

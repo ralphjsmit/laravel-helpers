@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.1.2 - 2022-02-17
+
+- Update `HasFactory` to use `self` instead of `static`, because this could refer to the wrong model when extending the original model.
+
 ## 1.1.1 - 2022-02-10
 
 - Remove accidental dependency

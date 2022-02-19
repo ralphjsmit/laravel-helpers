@@ -6,18 +6,18 @@
 use Illuminate\Support\Carbon;
 
 if ( ! function_exists('carbon') ) {
-    function carbon(mixed $input = null): Carbon
+    function carbon(mixed $input = null, string $timezone = null): Carbon
     {
-        return Carbon::parse($input);
+        return Carbon::parse($input, $timezone);
     }
 }
 
 if ( ! function_exists('carbonDate') ) {
     // This function returns a Carbon instance and floors the date, so
     // that the time is always at midnight.
-    function carbonDate(mixed $input = null): Carbon
+    function carbonDate(mixed $input = null, string $timezone = null): Carbon
     {
-        return Carbon::parse($input)->floorDay();
+        return Carbon::parse($input, $timezone)->floorDay();
     }
 }
 

@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.2.0 - 2022-03-04
+
+- Add `daysOfMonth()` helper
+
 ## 1.1.3 - 2022-02-19
 
 - Receive `$timezone` as second parameter in `carbon()` and `carbonDate()`

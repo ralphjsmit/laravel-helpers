@@ -4,6 +4,7 @@
 // that should be available everywhere.
 
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 
 if ( ! function_exists('carbon') ) {
     function carbon(mixed $input = null, string $timezone = null): Carbon
@@ -32,5 +33,22 @@ if ( ! function_exists('yesterday') ) {
     function yesterday(): Carbon
     {
         return now()->subDay();
+    }
+}
+
+if ( ! function_exists('daysOfMonth') ) {
+    function daysOfMonth(Carbon|string $month): Collection
+    {
+        $month = is_string($month) ? carbon($month) : $month;
+
+        $daysInMonth = $month->daysInMonth;
+
+        $daysOfMonth = collect();
+
+        for ($i = 1; $i <= $daysInMonth; $i++) {
+            $daysOfMonth->put($i, 0);
+        }
+
+        return $daysOfMonth;
     }
 }

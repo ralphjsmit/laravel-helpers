@@ -12,6 +12,50 @@ composer require ralphjsmit/laravel-helpers
 
 ## Laravel
 
+### Carbon
+
+The package offers several handy helpers to make working with Carbon-objects more pleasant.
+
+You can use the `carbon($input, $timezone)` helper to create a Carbon-object. Under the hood, this uses `Carbon::parse()`. Both parameters are optional.
+
+```php
+$firstDayOfNextMonth = carbon('first day of next month', 'Europe/Amsterdam');
+```
+
+You can use the `carbonDate($input, $timezone)` helper to create a Carbon-object and floor the day to 00:00:00. Under the hood, this uses `Carbon::parse()->floorDay()`. Both parameters are optional.
+
+```php
+$firstDayOfNextMonth = carbonDate('first day of next month', 'Europe/Amsterdam');
+
+$firstDayOfNextMonth->toTimeString();
+// '00:00:00'
+```
+
+You can use the `tomorrow()` function to create a Carbon-instance for tomorrow. Under the hood this uses `now()->addDay()`.
+
+You can use the `yesterday()` function to create a Carbon-instance for yesterday. Under the hood this uses `now()->subDay()`.
+
+```php
+$tomorrow = tomorrow();
+$yesterday = yesterday();
+```
+
+You can use the `daysOfMonth()` function to create a `Collection` instance with the days of the month as numeric keys and a value of `0`. Useful for creating things like graphs and the like.
+
+```php
+$days = daysOfMonth(carbon('march 2021'));
+//          [
+//            1 => 0,
+//            2 => 0,
+//            3 => 0,
+//            4 => 0,
+//            5 => 0,
+//            ...
+//            30 => 0,
+//            31 => 0,
+//         ]
+```
+
 ### Eloquent
 
 #### Smart factory name guessing with `HasFactory`

@@ -106,7 +106,7 @@ class MyComponent extends Component
 {
     use CanBeRefreshed;
     
-    // Will register the following as well:
+    // Will register the following event and listener:
     // [ '$refresh' => '$refresh', ]
     
     // Registering additional listeners is no problem:

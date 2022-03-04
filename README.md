@@ -44,6 +44,8 @@ You can use the `daysOfMonth()` function to create a `Collection` instance with 
 
 ```php
 $days = daysOfMonth(carbon('march 2021'));
+
+$days->all();
 //          [
 //            1 => 0,
 //            2 => 0,

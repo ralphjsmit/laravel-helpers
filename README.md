@@ -93,6 +93,55 @@ class MyModel extends Model
 }
 ```
 
+## Livewire
+
+### CanBeRefreshed trait
+
+You may use the `CanBeRefreshed` trait to automatically register the following event:
+
+```php
+use RalphJSmit\Helpers\Livewire\CanBeRefreshed;
+
+class MyComponent extends Component
+{
+    use CanBeRefreshed;
+    
+    // Will register the following as well:
+    // [ '$refresh' => '$refresh', ]
+    
+    // Registering additional listeners is no problem:
+    protected $listeners = [
+        /* Your other listeners */
+    ];
+}
+```
+
+### RegisterListeners trait
+
+You may use the `RegisterListeners` trait to dynamically register event listeners, for example from the `mount()` or `initialized()` methods:
+
+```php
+use RalphJSmit\Helpers\Livewire\RegisterListeners;
+
+// Somewhere...
+$this->registerListeners([
+    'my-event' => 'myListener'
+]);
+```
+
+### RegisterMessages trait
+
+You may use the `RegisterMessages` trait to dynamically register event listeners, for example from the `mount()` or `initialized()` methods:
+
+```php
+use RalphJSmit\Helpers\Livewire\RegisterMessages;
+
+// Somewhere...
+$this->registerMessages([
+    'user.email.required' => 'Adding an e-mail address is required.'
+]);
+```
+
 ## General
 
 🐞 If you spot a bug, please submit a detailed issue and I'll try to fix it as soon as possible.

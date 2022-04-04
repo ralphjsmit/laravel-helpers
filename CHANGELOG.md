@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.3.0 - 2022-04-04
+
+- Accept `$timezone` parameter in `yesterday()` and `tomorrow()` helpers.
+
 ## 1.2.0 - 2022-03-04
 
 - Add `daysOfMonth()` helper

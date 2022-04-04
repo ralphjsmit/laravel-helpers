@@ -34,17 +34,19 @@ it('can return a carbon instance for a date', function () {
 });
 
 it('can return a carbon instance for tomorrow', function () {
-    $tomorrow = tomorrow();
+    $tomorrow = tomorrow('Europe/Amsterdam');
 
-    expect($tomorrow->toDateString())
-        ->toBe(now()->addDay()->toDateString());
+    expect($tomorrow)
+        ->toDateString()->toBe(now()->addDay()->toDateString())
+        ->timezone->getName()->toBe('Europe/Amsterdam');
 });
 
 it('can return a carbon instance for yesterday', function () {
-    $yesterday = yesterday();
+    $yesterday = yesterday('Europe/Amsterdam');
 
-    expect($yesterday->toDateString())
-        ->toBe(now()->subDay()->toDateString());
+    expect($yesterday)
+        ->toDateString()->toBe(now()->subDay()->toDateString())
+        ->timezone->getName()->toBe('Europe/Amsterdam');
 });
 
 it('can return a collection with the days of a month as the keys', function (string $month, array $expected) {

@@ -23,16 +23,16 @@ if ( ! function_exists('carbonDate') ) {
 }
 
 if ( ! function_exists('tomorrow') ) {
-    function tomorrow(): Carbon
+    function tomorrow(string $timezone = null): Carbon
     {
-        return now()->addDay();
+        return now($timezone)->addDay();
     }
 }
 
 if ( ! function_exists('yesterday') ) {
-    function yesterday(): Carbon
+    function yesterday(string $timezone = null): Carbon
     {
-        return now()->subDay();
+        return now($timezone)->subDay();
     }
 }
 

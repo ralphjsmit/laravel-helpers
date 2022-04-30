@@ -1,5 +1,7 @@
 <?php
 
+use RalphJSmit\Helpers\Laravel\Pipe\Pipe;
+
 it('can pipe thingies through a pipe', function () {
     $thing = 'a';
 
@@ -58,7 +60,9 @@ it('can pipe invokeable classes through a pipe with the container and keep the o
     };
 
     $result = pipe($thing)
-        ->when(false)->via('execute')
+        ->when(false, function (Pipe $pipe) {
+            return $pipe->send("SHOULD_NOT_HAPPEN");
+        })
         ->through([
             TestClassPipeTest::class,
             TestClassPipeTest::class,

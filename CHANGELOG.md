@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.4.0 - 2022-04-30
+
+- Add `Pipe`, `pipe()`
+- Add `Pipeable`
+- Add `pipeline()`
+
 ## 1.3.0 - 2022-04-04
 
 - Accept `$timezone` parameter in `yesterday()` and `tomorrow()` helpers.

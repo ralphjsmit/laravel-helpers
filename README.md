@@ -79,7 +79,7 @@ This package also offers a handy trait that you can use to make your classes pip
 2. `->pipeInto($class)`. The `pipeInto()` method creates a new instance of the given class and passes the object into the constructor.
 3. `->pipeThrough($callbacks)`. The `pipeThrough()` method passes the object to the given array of closures/callables and returns the result of the executed callbacks.
 
-All three methods are the same as the three identically named methods in the `\Illuminate\Support\Collection` class. For examples, see the docs for `[pipe()](https://laravel.com/docs/9.x/collections#method-pipe)`, `[pipeInto()](https://laravel.com/docs/9.x/collections#method-pipeinto)` and `[pipeThrough()](https://laravel.com/docs/9.x/collections#method-pipethrough)` on the Laravel site.
+All three methods are the same as the three identically named methods in the `\Illuminate\Support\Collection` class. For examples, see the docs for [`pipe()`](https://laravel.com/docs/9.x/collections#method-pipe), [`pipeInto()`](https://laravel.com/docs/9.x/collections#method-pipeinto) and [`pipeThrough()`](https://laravel.com/docs/9.x/collections#method-pipethrough)` on the Laravel site.
 
 ### Carbon
 

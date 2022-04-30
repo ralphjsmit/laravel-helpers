@@ -43,14 +43,14 @@ You can create a new pipe with the `pipe()` function:
 
 ```php
 $result = pipe($thing)
-    ->through([
-        PerformAction::class,
-        PerformAnotherAction::class,
-    ])
-    ->then(function($result) {
-        // Do something with $result and return it.
-        return $result;
-    });
+  ->through([
+    PerformAction::class,
+    PerformAnotherAction::class,
+  ])
+  ->then(function($result) {
+    // Do something with $result and return it.
+    return $result;
+  });
 ```
 
 Each of the items in the `->through()` array can be one of the following:
@@ -66,9 +66,9 @@ At the end of each pipe, you can pass a closure to the `->then()` method to do s
 
 ```php
 $result = pipe($thing)
-   ->through(/** */)
-   ->via('execute')
-   ->thenReturn();
+  ->through(/** */)
+  ->via('execute')
+  ->thenReturn();
 ````
 
 #### Pipeable

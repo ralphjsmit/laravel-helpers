@@ -3,6 +3,7 @@
 // This file contains some miscellaneous helpers for Laravel,
 // that should be available everywhere.
 
+use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
@@ -50,5 +51,12 @@ if ( ! function_exists('daysOfMonth') ) {
         }
 
         return $daysOfMonth;
+    }
+}
+
+if ( ! function_exists('pipeline') ) {
+    function pipeline(mixed $passable = null): Pipeline
+    {
+        return $passable ? app(Pipeline::class)->send($passable) : app(Pipeline::class);
     }
 }

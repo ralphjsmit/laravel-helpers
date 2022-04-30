@@ -12,6 +12,75 @@ composer require ralphjsmit/laravel-helpers
 
 ## Laravel
 
+### Pipes, pipelines & pipeable
+
+#### Pipes v. pipelines
+
+Laravel has an undocumented feature called Pipelines. Pipelines are handy for sending data through a series of functions/classes.
+
+The pipelines in Laravel, however, have one big downside: inside every function or class, you need to call a closure to move to the next pipe in the pipeline. If you don't call that closure, the pipeline stops. Laravel Middleware is a great example of this.
+
+However, sometimes you don't want that closure and just pass the result of the first pipe into the second pipe, meaning that the full pipeline always gets executed. This package offers a custom implementation for that, called a "pipe". You don't have a way to stop execution (use a regular pipeline instead), but you don't have to call the closure inside each pipe either.
+
+From now on, I'll call the custom implementation of this package a "pipe" and the more advanced, regular Laravel-implementation a "pipeline".
+
+#### Pipeline
+
+You can use the `pipeline()` function to create a new pipeline:
+
+```php
+$result = pipeline()
+  ->send($class)
+  ->through($pipes)
+  ->thenReturn();
+```
+
+To learn more about pipelines, [check out this article](https://jeffochoa.me/understanding-laravel-pipelines).
+
+#### Pipe
+
+You can create a new pipe with the `pipe()` function:
+
+```php
+$result = pipe($thing)
+    ->through([
+        PerformAction::class,
+        PerformAnotherAction::class,
+    ])
+    ->then(function($result) {
+        // Do something with $result and return it.
+        return $result;
+    });
+```
+
+Each of the items in the `->through()` array can be one of the following:
+
+1. A closure or callable
+2. An invokable class (which is a callable as well)
+3. A class instance
+4. A class string
+
+By default, the pipe will try to execute each item with via a method 'handle'. You can change that method by using the `->via()` method.
+
+At the end of each pipe, you can pass a closure to the `->then()` method to do something with the result. To immedialtely return the result, you can also use the `->thenReturn()` method.
+
+```php
+$result = pipe($thing)
+   ->through(/** */)
+   ->via('execute')
+   ->thenReturn();
+````
+
+#### Pipeable
+
+This package also offers a handy trait that you can use to make your classes pipeable. If you include this trait, your classes will have the following new methods:
+
+1. `->pipe($callback)`. This method passes the object to the given closure or callable and returns the result of the executed callable.
+2. `->pipeInto($class)`. The `pipeInto()` method creates a new instance of the given class and passes the object into the constructor.
+3. `->pipeThrough($callbacks)`. The `pipeThrough()` method passes the object to the given array of closures/callables and returns the result of the executed callbacks.
+
+All three methods are the same as the three identically named methods in the `\Illuminate\Support\Collection` class. For examples, see the docs for `[pipe()](https://laravel.com/docs/9.x/collections#method-pipe)`, `[pipeInto()](https://laravel.com/docs/9.x/collections#method-pipeinto)` and `[pipeThrough()](https://laravel.com/docs/9.x/collections#method-pipethrough)` on the Laravel site.
+
 ### Carbon
 
 The package offers several handy helpers to make working with Carbon-objects more pleasant.

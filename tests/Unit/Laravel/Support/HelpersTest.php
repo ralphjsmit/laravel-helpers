@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Carbon;
 
 it('can return a carbon::parse instance from carbon()', function () {
@@ -94,3 +95,13 @@ it('can return a collection with the days of a month as the keys', function (str
         ],
     ],
 ]);
+
+it('can return a pipeline', function () {
+    expect(pipeline())->toBeInstanceOf(Pipeline::class);
+
+    $pipeline = pipeline('foo');
+
+    expect(
+        invade($pipeline)->passable
+    )->toBe('foo');
+});

@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.4.1 - 2022-05-03
+
+- Add PhpStorm/Psalm autocompletion for `->pipeInto()` method
+
 ## 1.4.0 - 2022-04-30
 
 - Add `Pipe`, `pipe()`

@@ -137,6 +137,25 @@ $days->all();
 
 ### Eloquent
 
+#### TimeCast
+
+Eloquent provides many nice casts, like `array`, `date` and `datetime`. However, Laravel doesn't provide with a `time` cast, for storing and casting timestamps like "08:30:00" to a Carbon instance.
+
+The reason is probably that passing only a timestamp like "08:30:00" to Carbon assumes a Carbon instance with the current date. This might or might not be a problem for you.
+
+In order to cast a timestring to a Carbon instance, you can set the `TimeCast` class as a cast. However, please be aware that this will create a carbon instance that assumes the current date.
+
+```php
+use RalphJSmit\Helpers\Laravel\Models\Casts;
+
+class Something extends Model
+{
+    protected $casts = [
+        'time' => TimeCast::class,
+    ];
+};
+```
+
 #### Smart factory name guessing with `HasFactory`
 
 You can use the new `HasFactory` trait to automatically guess the name of your factories. This optimized factory trait can also guess the name of factories in different namespaces than `App\Models`, like `Support\.

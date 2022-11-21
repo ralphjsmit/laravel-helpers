@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.6.0 - 2022-11-21
+
+- Add `BooleanAsTimestampCast`
+- Add factory `resolveRelationshipUsing()` method
+
 ## 1.5.0 - 2022-05-12
 
 – Add Eloquent `TimeCast` cast to cast values into timestamps like "08:30:00".

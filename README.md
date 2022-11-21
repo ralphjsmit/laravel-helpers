@@ -181,7 +181,7 @@ The reason is probably that passing only a timestamp like "08:30:00" to Carbon a
 In order to cast a timestring to a Carbon instance, you can set the `TimeCast` class as a cast. However, please be aware that this will create a carbon instance that assumes the current date.
 
 ```php
-use RalphJSmit\Helpers\Laravel\Models\Casts;
+use RalphJSmit\Helpers\Laravel\Models\Casts\TimeCast;
 
 class Something extends Model
 {
@@ -190,6 +190,25 @@ class Something extends Model
     ];
 };
 ```
+
+#### BooleanAsTimestampCast
+
+The `BooleanAsTimestampCast` cast is a handy cast that you can use to store a boolean value as a timestamp. In practice this still works the same as a normal boolean in the database. However, storing a boolean like this gives you the additional benefit of knowing when the boolean was enabled.
+
+If the value is set to `true`, it will store the current timestamp in the database. If the value is set to false, it will store `null` in the database.
+
+```php
+use RalphJSmit\Helpers\Laravel\Models\Casts\TimeCast;
+
+class Something extends Model
+{
+    protected $casts = [
+        'time' => BooleanAsTimestampCast::class,
+    ];
+};
+```
+
+```php
 
 #### Smart factory name guessing with `HasFactory`
 

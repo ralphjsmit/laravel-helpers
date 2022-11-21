@@ -10,13 +10,7 @@ class RequestMacros
     public static function register(): void
     {
         Request::macro('collect', function (): Collection {
-            return collect(
-                json_decode(
-                    json: $this->body(),
-                    flags: JSON_OBJECT_AS_ARRAY
-                )
-            );
+            return new Collection(json_decode(json: $this->body(), flags: JSON_OBJECT_AS_ARRAY));
         });
     }
-
 }

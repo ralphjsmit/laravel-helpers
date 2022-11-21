@@ -12,6 +12,41 @@ composer require ralphjsmit/laravel-helpers
 
 ## Laravel
 
+### Factories
+
+Instead of letting your factories extend Laravel's default factories, you can let them extend the `RalphJSmit\Helpers\Laravel\Factories\Factory` class.
+
+#### Complex factory relations with `resolveRelationship()`
+
+When you have a complex relationship, you can use the `resolveRelationship()` method to resolve the relationship. This is useful if you want to modify the factory using a closure or something similar:
+
+```php
+use RalphJSmit\Helpers\Laravel\Factories\Factory;
+
+class PostFactory extends Factory
+{
+    public function definition(): array
+    {
+        return [
+            'user_id' => null,
+        ];
+    }
+    
+    public function withUser(User|UserFactory|Closure|int|null $user = null): static
+    {
+        return $this->set('user_id', $this->resolveRelationship(User::class, $user));    
+    }
+}
+```
+
+A simple example would look like this:
+
+```php
+$post = Post::factory()
+    ->withUser(fn(UserFactory $factory): UserFactory => $factory->set('name', 'John Doe'))
+    ->create();
+```
+
 ### Pipes, pipelines & pipeable
 
 #### Pipes v. pipelines

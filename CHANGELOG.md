@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.7.0 - 2023-02-17
+
+- Add Laravel 10 support in #10
+
 ## 1.6.0 - 2022-11-21
 
 - Add `BooleanAsTimestampCast`

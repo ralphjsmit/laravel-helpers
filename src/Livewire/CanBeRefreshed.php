@@ -10,4 +10,11 @@ trait CanBeRefreshed
             '$refresh' => '$refresh',
         ]);
     }
+
+    protected function CanBeRefreshedInitialize(): void
+    {
+        $this->listeners = array_merge($this->listeners, [
+            '$refresh' => '$refresh',
+        ]);
+    }
 }

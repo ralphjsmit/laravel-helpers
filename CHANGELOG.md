@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.8.0 - 2023-08-03
+
+- Update Livewire trait convention
+
 ## 1.7.0 - 2023-02-17
 
 - Add Laravel 10 support in #10

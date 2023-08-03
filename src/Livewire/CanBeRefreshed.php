@@ -4,14 +4,14 @@ namespace RalphJSmit\Helpers\Livewire;
 
 trait CanBeRefreshed
 {
-    protected function initializeCanBeRefreshed(): void
+    public function initializeCanBeRefreshed(): void
     {
         $this->listeners = array_merge($this->listeners, [
             '$refresh' => '$refresh',
         ]);
     }
 
-    protected function CanBeRefreshedInitialize(): void
+    public function CanBeRefreshedInitialize(): void
     {
         $this->listeners = array_merge($this->listeners, [
             '$refresh' => '$refresh',

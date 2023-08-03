@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.8.1 - 2023-08-03
+
+- Fix L3 V3 bug.
+
 ## 1.8.0 - 2023-08-03
 
 - Update Livewire trait convention

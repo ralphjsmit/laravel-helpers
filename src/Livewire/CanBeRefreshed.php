@@ -2,6 +2,8 @@
 
 namespace RalphJSmit\Helpers\Livewire;
 
+use Livewire\Attributes\On;
+
 trait CanBeRefreshed
 {
     /**
@@ -17,10 +19,9 @@ trait CanBeRefreshed
     /**
      * Livewire V3.
      */
-    public function CanBeRefreshedInitialize(): void
+    #[On('$refresh')]
+    public function refreshInternal(): void
     {
-        $this->listeners = array_merge($this->listeners, [
-            '$refresh' => '$refresh',
-        ]);
+        //
     }
 }

@@ -4,12 +4,12 @@ use Livewire\Component;
 use Livewire\Livewire;
 use RalphJSmit\Helpers\Livewire\CanBeRefreshed;
 
-it('can refresh the component', function () {
+it('can refresh the component on Livewire V2', function () {
     $component = Livewire::test(CanBeRefreshedTestComponent::class);
 
     $component
-        ->emit('$refresh')
-        ->emit('$refresh')
+        ->dispatch('$refresh')
+        ->dispatch('$refresh')
         ->assertSet('renderedTimes', 3);
 });
 

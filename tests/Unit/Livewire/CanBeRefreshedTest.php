@@ -23,7 +23,6 @@ class CanBeRefreshedTestComponent extends Component
     {
         $this->renderedTimes++;
 
-        return "<div></div>";
+        return '<div></div>';
     }
 }
-

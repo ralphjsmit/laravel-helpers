@@ -8,18 +8,18 @@ use RalphJSmit\Helpers\Laravel\Support\NamespaceManager;
 
 class GuessFactoryAction
 {
-    public function execute(string $input, string $dir = null): string
+    public function execute(string $input, ?string $dir = null): string
     {
         $packageNamespace = $dir ? app(NamespaceManager::class)->findNamespace($dir) : '';
 
-        if ( Str::startsWith($input, 'App\\Models\\') ) {
+        if (Str::startsWith($input, 'App\\Models\\')) {
             $modelName = Str::after($input, 'App\\Models\\');
             $namespace = '';
 
             return "Database\\Factories\\{$namespace}{$modelName}Factory";
         }
 
-        if ( Str::contains($input, 'Models\\') ) {
+        if (Str::contains($input, 'Models\\')) {
             $modelName = Str::after($input, 'Models\\');
             $namespace = Str::of($input)
                 ->before('Models\\')

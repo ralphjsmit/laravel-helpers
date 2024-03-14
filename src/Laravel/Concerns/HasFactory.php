@@ -12,14 +12,14 @@ trait HasFactory
 
     public static function newFactory(): Factory
     {
-        $pathToCurrentModel = dirname(( new ReflectionClass(self::class) )->getFileName());
+        $pathToCurrentModel = dirname((new ReflectionClass(self::class))->getFileName());
 
         $guess = app(GuessFactoryAction::class)->execute(self::class, $pathToCurrentModel);
 
-        if ( $guess ) {
+        if ($guess) {
             return $guess::new();
         }
 
-        return ( new static )->factory::new();
+        return (new static)->factory::new();
     }
 }

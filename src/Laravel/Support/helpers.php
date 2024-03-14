@@ -7,37 +7,37 @@ use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
-if ( ! function_exists('carbon') ) {
-    function carbon(mixed $input = null, string $timezone = null): Carbon
+if (! function_exists('carbon')) {
+    function carbon(mixed $input = null, ?string $timezone = null): Carbon
     {
         return Carbon::parse($input, $timezone);
     }
 }
 
-if ( ! function_exists('carbonDate') ) {
+if (! function_exists('carbonDate')) {
     // This function returns a Carbon instance and floors the date, so
     // that the time is always at midnight.
-    function carbonDate(mixed $input = null, string $timezone = null): Carbon
+    function carbonDate(mixed $input = null, ?string $timezone = null): Carbon
     {
         return Carbon::parse($input, $timezone)->floorDay();
     }
 }
 
-if ( ! function_exists('tomorrow') ) {
-    function tomorrow(string $timezone = null): Carbon
+if (! function_exists('tomorrow')) {
+    function tomorrow(?string $timezone = null): Carbon
     {
         return now($timezone)->addDay();
     }
 }
 
-if ( ! function_exists('yesterday') ) {
-    function yesterday(string $timezone = null): Carbon
+if (! function_exists('yesterday')) {
+    function yesterday(?string $timezone = null): Carbon
     {
         return now($timezone)->subDay();
     }
 }
 
-if ( ! function_exists('daysOfMonth') ) {
+if (! function_exists('daysOfMonth')) {
     function daysOfMonth(Carbon|string $month): Collection
     {
         $month = is_string($month) ? carbon($month) : $month;
@@ -54,7 +54,7 @@ if ( ! function_exists('daysOfMonth') ) {
     }
 }
 
-if ( ! function_exists('pipeline') ) {
+if (! function_exists('pipeline')) {
     function pipeline(mixed $passable = null): Pipeline
     {
         return $passable ? app(Pipeline::class)->send($passable) : app(Pipeline::class);

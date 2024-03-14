@@ -10,16 +10,22 @@ it('can pipe thingies through a pipe', function () {
         ->through([
             new class
             {
-                public function execute($input) { return $input . 'b'; }
+                public function execute($input)
+                {
+                    return $input.'b';
+                }
             },
             new class
             {
-                public function execute($input) { return $input . 'c'; }
+                public function execute($input)
+                {
+                    return $input.'c';
+                }
             },
         ])
         ->via('execute')
         ->then(function ($thing) {
-            return $thing . 'z';
+            return $thing.'z';
         });
 
     expect($result)
@@ -61,7 +67,7 @@ it('can pipe invokeable classes through a pipe with the container and keep the o
 
     $result = pipe($thing)
         ->when(false, function (Pipe $pipe) {
-            return $pipe->send("SHOULD_NOT_HAPPEN");
+            return $pipe->send('SHOULD_NOT_HAPPEN');
         })
         ->through([
             TestClassPipeTest::class,

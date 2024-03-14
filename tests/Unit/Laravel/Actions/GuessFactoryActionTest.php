@@ -6,13 +6,13 @@ use RalphJSmit\Helpers\Laravel\Support\NamespaceManager;
 it('can guess the name of a factory', function (
     string $input,
     string $expectedGuess,
-    bool $guessFactoryNamesWithDomainNamespace = null,
-    bool $guessFactoryNamesWithSupportNamespace = null
+    ?bool $guessFactoryNamesWithDomainNamespace = null,
+    ?bool $guessFactoryNamesWithSupportNamespace = null
 ): void {
-    if ( is_bool($guessFactoryNamesWithDomainNamespace) ) {
+    if (is_bool($guessFactoryNamesWithDomainNamespace)) {
         config()->set('helpers.laravel.guess_factory_names_with_domain_namespace', $guessFactoryNamesWithDomainNamespace);
     }
-    if ( is_bool($guessFactoryNamesWithSupportNamespace) ) {
+    if (is_bool($guessFactoryNamesWithSupportNamespace)) {
         config()->set('helpers.laravel.guess_factory_names_with_support_namespace', $guessFactoryNamesWithSupportNamespace);
     }
 
@@ -37,15 +37,15 @@ it('can guess the name of a factory', function (
 it('can guess the name of a factory for a package', function (
     string $input,
     string $expectedGuess,
-    bool $guessFactoryNamesWithDomainNamespace = null,
-    bool $guessFactoryNamesWithSupportNamespace = null,
+    ?bool $guessFactoryNamesWithDomainNamespace,
+    ?bool $guessFactoryNamesWithSupportNamespace,
     string $pathToModel,
     array $packageNamespaces = [],
 ): void {
-    if ( is_bool($guessFactoryNamesWithDomainNamespace) ) {
+    if (is_bool($guessFactoryNamesWithDomainNamespace)) {
         config()->set('helpers.laravel.guess_factory_names_with_domain_namespace', $guessFactoryNamesWithDomainNamespace);
     }
-    if ( is_bool($guessFactoryNamesWithSupportNamespace) ) {
+    if (is_bool($guessFactoryNamesWithSupportNamespace)) {
         config()->set('helpers.laravel.guess_factory_names_with_support_namespace', $guessFactoryNamesWithSupportNamespace);
     }
 
@@ -77,4 +77,5 @@ it('can guess the name of a factory for a package', function (
     ],
 ]);
 
-expect('it can guess the name of a factory in regular Laravel model structure', function () {});
+expect('it can guess the name of a factory in regular Laravel model structure', function () {
+});

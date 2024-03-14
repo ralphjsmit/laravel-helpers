@@ -7,9 +7,18 @@ use RalphJSmit\Helpers\Livewire\CanBeRefreshed;
 it('can refresh the component on Livewire V2', function () {
     $component = Livewire::test(CanBeRefreshedTestComponent::class);
 
+    $method = match (true) {
+        method_exists($component, 'emit') => 'emit',
+        method_exists($component, 'dispatch') => 'dispatch',
+    };
+
     $component
-        ->dispatch('$refresh')
-        ->dispatch('$refresh')
+        ->{$method}(
+            '$refresh'
+        )
+        ->{$method}(
+            '$refresh'
+        )
         ->assertSet('renderedTimes', 3);
 });
 

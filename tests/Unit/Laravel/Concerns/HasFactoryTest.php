@@ -22,6 +22,7 @@ class FactoryModel extends Model
     use HasFactory;
 
     protected $factory = FactoryModelFactory::class;
+
     protected $guarded = [];
 }
 

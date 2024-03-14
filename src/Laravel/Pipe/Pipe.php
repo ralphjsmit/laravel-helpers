@@ -69,7 +69,7 @@ class Pipe implements Pipeline
 
                 $item = $this->parsePipe($item);
 
-                if ( is_callable($item) ) {
+                if (is_callable($item)) {
                     return $item($carry);
                 }
 

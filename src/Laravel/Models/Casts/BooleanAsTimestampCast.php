@@ -12,9 +12,9 @@ class BooleanAsTimestampCast implements CastsAttributes
         return $value !== null;
     }
 
-    public function set($model, string $key, $value, array $attributes): null|Carbon
+    public function set($model, string $key, $value, array $attributes): ?Carbon
     {
-        if ( ! $value ) {
+        if (! $value) {
             return null;
         }
 

@@ -14,11 +14,17 @@ it('can pipe thingies through a pipe', function () {
         ->pipeThrough([
             new class
             {
-                public function __invoke($input) { return $input->input . 'b'; }
+                public function __invoke($input)
+                {
+                    return $input->input.'b';
+                }
             },
             new class
             {
-                public function __invoke($input) { return $input . 'c'; }
+                public function __invoke($input)
+                {
+                    return $input.'c';
+                }
             },
         ]);
 
@@ -74,5 +80,6 @@ class TestClassPipeableTest
 {
     public function __construct(
         public mixed $thing
-    ) {}
+    ) {
+    }
 }

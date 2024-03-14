@@ -9,7 +9,7 @@ class TimeCast implements CastsAttributes
 {
     public function get($model, string $key, $value, array $attributes): ?Carbon
     {
-        if ( $value === null ) {
+        if ($value === null) {
             return null;
         }
 

@@ -18,12 +18,12 @@ class NamespaceManager
     public function findNamespace(string $path): string
     {
         foreach ($this->getNamespaces() as $namespacePath => $namespace) {
-            if ( Str::contains($path, $namespacePath) ) {
+            if (Str::contains($path, $namespacePath)) {
                 return $namespace;
             }
         }
 
-        return "";
+        return '';
     }
 
     public function getNamespaces(): array

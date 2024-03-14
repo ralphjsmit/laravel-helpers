@@ -35,7 +35,7 @@ class RegisterListenersTestComponent extends Component
 
     public function render()
     {
-        return "<div></div>";
+        return '<div></div>';
     }
 
     public function assert()
@@ -47,4 +47,3 @@ class RegisterListenersTestComponent extends Component
         ], $this->listeners);
     }
 }
-

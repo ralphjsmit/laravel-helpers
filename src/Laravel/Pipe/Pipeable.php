@@ -11,7 +11,8 @@ trait Pipeable
 
     /**
      * @template T
-     * @param class-string<T> $class
+     *
+     * @param  class-string<T>  $class
      * @return T
      */
     public function pipeInto(string $class): mixed

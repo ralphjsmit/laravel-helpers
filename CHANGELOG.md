@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.9.0 - 2024-03-14
+
+- Laravel 11 support.
+
 ## 1.8.1 - 2023-08-03
 
 - Fix L3 V3 bug.

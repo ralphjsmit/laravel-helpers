@@ -16,14 +16,14 @@ it('can pipe thingies through a pipe', function () {
             {
                 public function __invoke($input)
                 {
-                    return $input->input.'b';
+                    return $input->input . 'b';
                 }
             },
             new class
             {
                 public function __invoke($input)
                 {
-                    return $input.'c';
+                    return $input . 'c';
                 }
             },
         ]);

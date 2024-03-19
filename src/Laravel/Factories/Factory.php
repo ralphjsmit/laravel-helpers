@@ -11,7 +11,7 @@ abstract class Factory extends \Illuminate\Database\Eloquent\Factories\Factory
     /**
      * @param  class-string<HasFactory>  $relationshipModel
      */
-    protected function resolveRelationship(string $relationshipModel, Model|self|Closure|int|null $relationship): self|Model|int
+    protected function resolveRelationship(string $relationshipModel, Model | self | Closure | int | null $relationship): self | Model | int
     {
         if (is_int($relationship)) {
             return $relationship;

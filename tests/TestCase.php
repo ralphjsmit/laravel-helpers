@@ -14,7 +14,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'RalphJSmit\\Helpers\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'RalphJSmit\\Helpers\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 

@@ -12,20 +12,20 @@ it('can pipe thingies through a pipe', function () {
             {
                 public function execute($input)
                 {
-                    return $input.'b';
+                    return $input . 'b';
                 }
             },
             new class
             {
                 public function execute($input)
                 {
-                    return $input.'c';
+                    return $input . 'c';
                 }
             },
         ])
         ->via('execute')
         ->then(function ($thing) {
-            return $thing.'z';
+            return $thing . 'z';
         });
 
     expect($result)

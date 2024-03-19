@@ -38,7 +38,7 @@ if (! function_exists('yesterday')) {
 }
 
 if (! function_exists('daysOfMonth')) {
-    function daysOfMonth(Carbon|string $month): Collection
+    function daysOfMonth(Carbon | string $month): Collection
     {
         $month = is_string($month) ? carbon($month) : $month;
 

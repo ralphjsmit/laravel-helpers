@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.11.0 - 2026-03-07
+
+- Feat: Laravel 13 support
+
 ## 1.10.0 - 2025-02-25
 
 - Feat: Laravel 12 support

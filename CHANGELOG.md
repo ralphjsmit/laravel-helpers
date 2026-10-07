@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-helpers` will be documented in this file.
 
+## 1.11.1 - 2026-10-07
+
+- Chore: add Guzzle 8 support by @getupkid
+
 ## 1.11.0 - 2026-03-07
 
 - Feat: Laravel 13 support
